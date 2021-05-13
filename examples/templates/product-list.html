@@ -1,17 +1,17 @@
 <div class="row" ng-if="products && products.length">
-  <div
-    class="card col-3"
-    ng-repeat="p in (products | limitTo: size) track by p.id"
-  >
-    <img
-      ng-src="{{ p.picture }}"
-      class="card-img-top"
-      alt="{{ p.description | limitTo: 25 }}"
-    />
+  <div class="card col-4" ng-repeat="p in products track by p.id">
+    <a href="#!/product-details?id={{ p.id }}">
+      <img
+        ng-src="{{ p.picture }}"
+        class="card-img-top"
+        alt="{{ p.description | limitTo: 25 }}"
+      />
+    </a>
     <div class="card-body">
       <p class="card-text" ng-bind="p.description | uppercase "></p>
       <h5 class="card-title" ng-bind="p.quantity_per_unit"></h5>
       <p class="card-text">{{ p.unit_price | currency : '₹ ' : 1}}</p>
+      <add-to-cart></add-to-cart>
     </div>
   </div>
 </div>

@@ -15,7 +15,11 @@
   <body>
     <div class="alert alert-primary">
       <div class="container">
-        <h1>{{ title }}</h1>
+        <h1>
+          <a href="#!/" style="color: #fff; text-decoration: none"
+            >{{ title }}</a
+          >
+        </h1>
       </div>
     </div>
 
@@ -34,7 +38,9 @@
           <!-- ul.list-group>li.list-group-item -->
           <ul class="list-group">
             <li class="list-group-item" ng-repeat="c in categories">
-                <a href="#!/product-list?category={{c}}" class="btn btn-link">{{c}}</a>
+              <a href="#!/product-list?category={{c}}" class="btn btn-link"
+                >{{c}}</a
+              >
             </li>
           </ul>
 
@@ -43,7 +49,9 @@
           <h5>Choose by brand</h5>
           <ul class="list-group">
             <li class="list-group-item" ng-repeat="b in brands">
-                <a href="#!/product-list?brand={{b}}" class="btn btn-link">{{b}}</a>
+              <a href="#!/product-list?brand={{b}}" class="btn btn-link"
+                >{{b}}</a
+              >
             </li>
           </ul>
         </div>

@@ -32,6 +32,25 @@ app.controller("productListController", [
   },
 ]);
 
+app.controller("productDetailsController", [
+  "$scope",
+  "$routeParams",
+  "productService",
+  function ($scope, $routeParams, ps) {
+    var id = $routeParams["id"];
+    ps.getProductById(id, function (data) {
+      $scope.product = data;
+    });
+  },
+]);
+
+// a component is a re-usable piece of view+controller
+// it is registered with "camelCapsName"
+// but used as <camel-caps-name></camel-caps-name>
+app.component("addToCart", {
+  templateUrl: "./templates/add-to-cart.html",
+});
+
 app.config([
   "$routeProvider",
   function ($routeProvider) {
@@ -42,6 +61,10 @@ app.config([
       .when("/product-list", {
         templateUrl: "./templates/product-list.html",
         controller: "productListController",
+      })
+      .when("/product-details", {
+        templateUrl: "./templates/product-details.html",
+        controller: "productDetailsController",
       });
   },
 ]);
