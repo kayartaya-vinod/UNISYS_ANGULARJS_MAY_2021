@@ -33,14 +33,18 @@
           <h5>Choose by category</h5>
           <!-- ul.list-group>li.list-group-item -->
           <ul class="list-group">
-            <li class="list-group-item" ng-repeat="c in categories">{{ c }}</li>
+            <li class="list-group-item" ng-repeat="c in categories">
+                <a href="#!/product-list?category={{c}}" class="btn btn-link">{{c}}</a>
+            </li>
           </ul>
 
           <br />
 
           <h5>Choose by brand</h5>
           <ul class="list-group">
-            <li class="list-group-item" ng-repeat="b in brands">{{ b }}</li>
+            <li class="list-group-item" ng-repeat="b in brands">
+                <a href="#!/product-list?brand={{b}}" class="btn btn-link">{{b}}</a>
+            </li>
           </ul>
         </div>
       </div>

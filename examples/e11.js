@@ -13,11 +13,22 @@ app.controller("main", [
 
 app.controller("productListController", [
   "$scope",
+  "$routeParams",
   "productService",
-  function ($scope, ps) {
-    ps.getAllProducts(function (data) {
-      $scope.products = data;
-    });
+  function ($scope, $routeParams, ps) {
+    if ("category" in $routeParams) {
+      ps.getProductsByCategory($routeParams["category"], function (data) {
+        $scope.products = data;
+      });
+    } else if ("brand" in $routeParams) {
+      ps.getProductsByBrand($routeParams["brand"], function (data) {
+        $scope.products = data;
+      });
+    } else {
+      ps.getAllProducts(function (data) {
+        $scope.products = data;
+      });
+    }
   },
 ]);
 

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --delay=500 --watch --port=3000 db.json"
+    "start": "json-server --delay=0 --watch --port=3000 db.json"
   },
   "keywords": [],
   "author": "",
