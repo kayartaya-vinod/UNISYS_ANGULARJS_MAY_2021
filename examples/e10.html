@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="e10" ng-controller="main">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title}}</title>
+
+    <link rel="stylesheet" href="./lib/bootstrap/bootstrap.min.css" />
+
+    <script src="./lib/angular-1.8.2/angular.js"></script>
+    <script src="./lib/angular-1.8.2/angular-route.js"></script>
+
+    <script src="./e10.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>{{ title }}</h1>
+
+      <a href="#!/home">Home</a> | 
+      <a href="#!/about">About</a> |
+      <a href="#!/contact-us">Contact us</a>
+      <hr />
+
+      <div ng-view>
+        <p>This is the place where content will change based on route path</p>
+      </div>
+    </div>
+  </body>
+</html>

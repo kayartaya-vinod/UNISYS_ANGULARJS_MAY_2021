@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="e04" ng-controller="c1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+
+    <link rel="stylesheet" href="./lib/bootstrap/bootstrap.min.css" />
+    <script src="./lib/angular-1.8.2/angular.js"></script>
+    <script src="./e04.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>{{ title }}</h1>
+      <hr />
+      <h2>Top 10 search results for "Iron man" movies</h2>
+
+      <div class="row">
+        <div ng-repeat="m in movies track by m.imdbID" class="card col-3">
+          <img ng-src="{{m.Poster}}" class="card-img-top" alt="{{ m.Title }}" />
+          <div class="card-body">
+            <h5 class="card-title">{{ m.Title }}</h5>
+            <p class="card-text">[{{ m.Type }}] {{ m.Year }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

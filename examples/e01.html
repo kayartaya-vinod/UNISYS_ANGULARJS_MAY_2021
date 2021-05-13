@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp"> <!-- myapp is the name of the module -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Angular JS 1.8 Examples</title>
+
+    <!-- Following script adds a new member variable to the global (window) scope, 
+        called "angular" which is an object -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+
+    <script>
+      console.log("angular is", angular);
+      //   create a new angular module called "myapp", register with angular
+      // angular.module("myapp"); // looking for an existing module called "myapp"
+      var myapp = angular.module("myapp", ["ng"]); // in the presense of second parameter, angular creates a new module called "myapp"
+      // the second paramter is a list of "dependencies (modules)". "ng" is inherited by default
+
+      // model (data in JS VM)
+      var myName = "Vinod Kumar";
+
+      // store the model in view-model (maintained/monitered by Angular)
+
+      // a controller is a function that we need to register with our module "myapp"
+      function c1($scope) {
+        // $scope is a special local variable of a controller, that may hold
+        // view-model (data/functions), that can be accessible to the corresponding view
+        console.log("c1() called");
+        // myName and myCity are called "view-model"
+        $scope.myName = "Vinod Kumar Kayartaya";
+        $scope.myCity = "Bangalore";
+      }
+
+      // register the above function with our module "myapp".
+      // angular calls the function whenever it finds a reference to it via ng-controller directive
+      myapp.controller("ctr1", c1); // not c1()
+    </script>
+  </head>
+  <body>
+    <h1>Angular JS 1.8 Examples</h1>
+    <hr />
+    <p>Developed by Vinod</p>
+
+    <div ng-controller="ctr1">
+      <!-- view -->
+      <h3>My name is {{ myName }}, and I live in {{ myCity }}</h3>
+
+      <div>
+        <input type="text" ng-model="myName" />
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- 
+    file:///Users/vinod/Desktop/UNISYS_ANGULARJS_MAY_2021/examples/e01.html
+    http://127.0.0.1:5500/examples/e01.html
+ -->

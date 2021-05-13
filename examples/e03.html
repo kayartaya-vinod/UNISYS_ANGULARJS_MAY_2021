@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="e03" ng-controller="c1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="./lib/angular-1.8.2/angular.js"></script>
+    <script src="./e03.js"></script>
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    <p>Friends raw data: {{ friends }}</p>
+
+    <div>
+      <input type="text" ng-model="newFriend" />
+      <button ng-click="addName()">Add</button>
+    </div>
+
+    <ol>
+      <!-- ng-repeat directive creates a new scope accessible only to <li></li> and stores the model "friend" in it -->
+      <li ng-repeat="friend in friends track by $index">{{ friend }}</li>
+    </ol>
+  </body>
+</html>

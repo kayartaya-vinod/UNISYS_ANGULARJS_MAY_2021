@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="e09">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./lib/bootstrap/bootstrap.min.css" />
+    <script src="./lib/jquery/jquery-3.6.0.js"></script>
+    <script src="./lib/angular-1.8.2/angular.js"></script>
+    <script src="./e09.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Services demo</h1>
+      <hr />
+
+      <div class="row">
+        <div class="col" ng-controller="c1">
+          <!-- ul.list-group>li.list-group-item -->
+          <ul class="list-group">
+            <li
+              class="list-group-item"
+              ng-repeat="name in ns.names track by $index"
+            >
+              {{ name }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="col" ng-controller="c2">
+          <!-- input:text.form-control[placeholder='enter a name'] -->
+          <input
+            type="text"
+            autofocus
+            class="form-control"
+            placeholder="enter a name"
+            ng-model="newName"
+          />
+          <br />
+          <button ng-click="addNewName()" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

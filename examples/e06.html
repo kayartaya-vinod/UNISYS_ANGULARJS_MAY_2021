@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple module bootstrap</title>
+
+    <script src="./lib/jquery/jquery-3.6.0.js"></script>
+    <script src="./lib/angular-1.8.2/angular.js"></script>
+    <script>
+      var m1 = angular.module("m1", ["m3"]);
+      m1.controller("c1", function ($scope) {
+        $scope.message = "Hello, world!";
+      });
+
+      var m2 = angular.module("m2", []);
+      m2.controller("c2", function ($scope) {
+        $scope.message = "Welcome to angular js.";
+      });
+
+      var m3 = angular.module("m3", []);
+      m3.controller("c3", function ($scope) {
+        console.log("c3 instatiated", Date.now());
+        $scope.name = "Vinod Kumar";
+      });
+
+      angular.element(function () {
+        // example of a manual bootstrap (initialization).
+        // this callback function is executed after all the elements are loaded to DOM.
+        // no need to use ng-app="m2" on the element.
+        angular.bootstrap("#d2", ["m2", "m3"]);
+      });
+    </script>
+  </head>
+  <body>
+    <div ng-app="m1" ng-controller="c1">
+      <h1>{{ message }}</h1>
+      <div ng-controller="c3">
+        <h2>{{ name }}</h2>
+        <input type="text" ng-model="name" />
+      </div>
+    </div>
+
+    <div id="d2" ng-controller="c2">
+      <h1>{{ message }}</h1>
+
+      <div ng-controller="c3">
+        <p>Develped by {{ name }}</p>
+        <p>{{ $parent.message }}</p>
+      </div>
+    </div>
+  </body>
+</html>

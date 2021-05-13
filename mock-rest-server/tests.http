@@ -1,0 +1,44 @@
+GET /products
+Host: localhost:3000
+Accept: application/json
+
+###
+
+GET /products/86
+Host: localhost:3000
+Accept: application/json
+
+###
+
+GET /products?_page=2&_limit=5
+Host: localhost:3000
+Accept: application/json
+
+###
+
+GET /products?brand=Zespri
+Host: localhost:3000
+Accept: application/json
+###
+
+DELETE /products/12
+Host: localhost:3000
+Accept: application/json
+
+###
+
+POST /products
+Host: localhost:3000
+Accept: application/json
+Content-Type: application/json
+
+{
+    "category": "vegetable",
+    "name": "Chillies",
+    "brand": "Malnad",
+    "description": "Chillies, Green",
+    "quantity_per_unit": "250 grms",
+    "unit_price": 12,
+    "picture": "https://vinbasket.herokuapp.com/product-images/40024625_2-zespri-kiwi-green.jpg",
+    "discount": 19
+  }
