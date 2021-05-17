@@ -1,4 +1,14 @@
+GET /customers
+Host: localhost:3000
+Accept: application/json
+
+###
 GET /products
+Host: localhost:3000
+Accept: application/json
+
+###
+GET /products?_page=2&_limit=20
 Host: localhost:3000
 Accept: application/json
 

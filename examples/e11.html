@@ -1,61 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="e11" ng-controller="main">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }}</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ title }}</title>
 
-    <link rel="stylesheet" href="./lib/bootstrap/bootstrap.min.css" />
-    <script src="./lib/angular-1.8.2/angular.js"></script>
-    <script src="./lib/angular-1.8.2/angular-route.js"></script>
-    <script src="./e11.js"></script>
-    <script src="./e11-product-service.js"></script>
-  </head>
-  <body>
-    <div class="alert alert-primary">
-      <div class="container">
-        <h1>
-          <a href="#!/" style="color: #fff; text-decoration: none"
-            >{{ title }}</a
-          >
-        </h1>
-      </div>
-    </div>
-
-    <!-- .container>.row>.col-9+.col-3 -->
-    <div class="container">
-      <div class="row">
-        <div class="col-9">
-          <div ng-view>
-            Content will be presented here, based on the route path
-          </div>
+        <link rel="stylesheet" href="./lib/bootstrap/bootstrap.min.css" />
+        <script src="./lib/angular-1.8.2/angular.js"></script>
+        <script src="./lib/angular-1.8.2/angular-route.js"></script>
+        <script src="./e11-product-service.js"></script>
+        <script src="./e11-cart-module.js"></script>
+        <script src="./e11.js"></script>
+    </head>
+    <body>
+        <div class="alert alert-primary">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1>
+                            <a
+                                href="#!/"
+                                style="color: #fff; text-decoration: none"
+                                >{{ title }}</a
+                            >
+                        </h1>
+                    </div>
+                    <div class="col">
+                        <h1 ng-if="cs.lineItems.length">
+                            Cart contains {{ cs.lineItems.length }} items
+                        </h1>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-3">
-          <!-- side bar here -->
 
-          <h5>Choose by category</h5>
-          <!-- ul.list-group>li.list-group-item -->
-          <ul class="list-group">
-            <li class="list-group-item" ng-repeat="c in categories">
-              <a href="#!/product-list?category={{c}}" class="btn btn-link"
-                >{{c}}</a
-              >
-            </li>
-          </ul>
-
-          <br />
-
-          <h5>Choose by brand</h5>
-          <ul class="list-group">
-            <li class="list-group-item" ng-repeat="b in brands">
-              <a href="#!/product-list?brand={{b}}" class="btn btn-link"
-                >{{b}}</a
-              >
-            </li>
-          </ul>
+        <!-- .container>.row>.col-9+.col-3 -->
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+                    <div ng-view>
+                        Content will be presented here, based on the route path
+                    </div>
+                </div>
+                <div class="col-3">
+                    <!-- side bar here -->
+                    <app-nav-items
+                        heading="'Choose by category'"
+                        array="categories"
+                        page="'#!/product-list'"
+                        filter-by="'category'"
+                    ></app-nav-items>
+                    <div
+                        app-nav-items
+                        heading="'Choose by brand'"
+                        array="brands"
+                        page="'#!/product-list'"
+                        filter-by="'brand'"
+                    ></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>

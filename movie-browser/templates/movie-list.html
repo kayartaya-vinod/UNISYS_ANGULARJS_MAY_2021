@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="card col-3" ng-repeat="m in movies">
+        <img ng-src="{{m.Poster}}" class="card-img-top" alt="{{m.Title}}" />
+        <div class="card-body">
+            <h5 class="card-title">{{ m.Title }}</h5>
+            <p class="card-text">{{ m.Year }} {{ m.Type}}</p>
+        </div>
+    </div>
+</div>

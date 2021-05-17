@@ -1,0 +1,26 @@
+<h3>{{ title }}</h3>
+<p>Developed by {{ developer }}</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td
+                ng-if="exclude.indexOf(key)===-1"
+                ng-repeat="(key, val) in array[0]"
+            >
+                {{ key | uppercase }}
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in array track by $index">
+            <td
+                ng-if="exclude.indexOf(key)===-1"
+                ng-repeat="(key, val) in item"
+            >
+                {{ val }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<app-footer text="title"></app-footer>

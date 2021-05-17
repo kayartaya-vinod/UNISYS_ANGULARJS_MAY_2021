@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="e12" ng-controller="main">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title ng-bind="title"></title>
+        <link rel="stylesheet" href="./lib/bootstrap/bootstrap.min.css" />
+        <script src="./lib/jquery/jquery-3.6.0.js"></script>
+        <script src="./lib/angular-1.8.2/angular.js"></script>
+        <script src="./e12.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1 ng-bind="title"></h1>
+
+            <hr />
+
+            <div
+                app-data-table
+                developer="Vinod Kumar"
+                title="Top 10 Spiderman movies"
+                url="http://www.omdbapi.com/?s=spider&apikey=aa9e49f"
+                property="Search"
+                exclude="['Poster']"
+            ></div>
+
+            <app-data-table
+                title="List of products"
+                array="products"
+                exclude="['picture', 'id', 'unit_price', 'discount']"
+            >
+            </app-data-table>
+            <div
+                app-data-table
+                title="List of products"
+                url="http://localhost:3000/products?_page=1"
+            ></div>
+
+            <div app-hello-world></div>
+            <app-hello-world></app-hello-world>
+            <div class="app-hello-world"></div>
+
+            <h3>Bullets using directives</h3>
+            <div app-bullets></div>
+
+            <div app-list heading="'List of cities'" items="cities"></div>
+            <div app-list heading="'List of friends'" items="friends"></div>
+            <div
+                app-list
+                heading="'List of colors'"
+                items="['Red', 'Blue', 'Green', 'White', 'Blue']"
+            ></div>
+        </div>
+
+        <app-footer text="'bottom of the page'"></app-footer>
+    </body>
+</html>

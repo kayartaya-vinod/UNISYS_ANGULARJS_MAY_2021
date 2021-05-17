@@ -1,0 +1,38 @@
+{
+    "name": "movie-browser",
+    "version": "1.0.0",
+    "description": "Angular js 1.8 movie browser application",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack",
+        "start": "webpack serve --open --port=8080"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kayartaya-vinod/angularjs-movie-browser.git"
+    },
+    "keywords": [
+        "angularjs",
+        "angular 1.x"
+    ],
+    "author": "Vinod Kumar Kayartaya <vinod@vinod.co>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/kayartaya-vinod/angularjs-movie-browser/issues"
+    },
+    "homepage": "https://github.com/kayartaya-vinod/angularjs-movie-browser#readme",
+    "dependencies": {
+        "angular": "^1.8.2",
+        "bootstrap": "^5.0.1",
+        "copy-webpack-plugin": "^8.1.1",
+        "css-loader": "^5.2.4",
+        "jquery": "^3.6.0",
+        "style-loader": "^2.0.0",
+        "webpack": "^5.37.0",
+        "webpack-cli": "^4.7.0"
+    },
+    "devDependencies": {
+        "webpack-dev-server": "^3.11.2"
+    }
+}

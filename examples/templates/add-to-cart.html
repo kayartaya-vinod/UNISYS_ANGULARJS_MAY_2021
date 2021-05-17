@@ -1,1 +1,15 @@
-<button class="btn btn-primary">Add to cart</button>
+<div ng-if="getQuantity($ctrl.product.id)===0">
+    <button class="btn btn-primary" ng-click="incrQty($ctrl.product)">
+        Add to cart
+    </button>
+</div>
+
+<div ng-if="getQuantity($ctrl.product.id)">
+    <button class="btn btn-danger" ng-click="decrQty($ctrl.product)">
+        &nbsp;&nbsp;-&nbsp;&nbsp;
+    </button>
+    &nbsp;&nbsp; {{ getQuantity($ctrl.product.id) }} &nbsp;&nbsp;
+    <button class="btn btn-success" ng-click="incrQty($ctrl.product)">
+        &nbsp;&nbsp;+&nbsp;&nbsp;
+    </button>
+</div>
